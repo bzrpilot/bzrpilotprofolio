@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/modal.css">
 </head>
 
 <body>
@@ -214,9 +215,13 @@
                         <a href="https://letterboxd.com/bzr.pilot" target="_blank">Letterboxd</a>
                     </div>
                 </div>
+                <!-- Hidden iframe to prevent redirect -->
+                <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"
+                    onload="if(submitted) {showSuccessModal()}"></iframe>
+
                 <form class="contact-form"
                     action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScd9C-dr02isCp1N_sbxDKmTf2DyF20St_kT22ckmdAvePIGA/formResponse"
-                    method="POST" target="_blank">
+                    method="POST" target="hidden_iframe" onsubmit="submitted=true;">
                     <div class="form-group">
                         <input type="text" name="entry.413186747" placeholder="Name" required>
                     </div>
@@ -231,6 +236,16 @@
             </div>
         </div>
     </section>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <i class="fas fa-check-circle"></i>
+            <h3>Message Sent!</h3>
+            <p>Thanks for reaching out, Basheer will get back to you securely.</p>
+        </div>
+    </div>
 
     <footer>
         <p>&copy; 2024 Basheer (bzr.pilot). All Rights Reserved.</p>
