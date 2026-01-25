@@ -91,3 +91,33 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     });
 });
+
+// Form Submission Handling
+let submitted = false;
+
+function showSuccessModal() {
+    const modal = document.getElementById('success-modal');
+    if (modal) {
+        modal.style.display = 'flex';
+        // Clear form
+        const form = document.querySelector('.contact-form');
+        if (form) form.reset();
+        submitted = false;
+    }
+}
+
+// Close Modal Logic
+const modal = document.getElementById('success-modal');
+const span = document.querySelector(".close-modal");
+
+if (span) {
+    span.onclick = function () {
+        if (modal) modal.style.display = "none";
+    }
+}
+
+window.onclick = function (event) {
+    if (event.target == modal) {
+        if (modal) modal.style.display = "none";
+    }
+}
