@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Analyst | Basheer</title>
+    <meta name="description" content="The Analyst - Curiosity, skills, and discipline in cybersecurity.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&family=Inter:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <style>
+        /* Subpage specific styles to ensure consistency with main theme */
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-body);
+        }
+
+        .subpage-header {
+            padding: 100px 5% 50px;
+            text-align: center;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            font-family: var(--font-mono);
+            color: var(--primary);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 100;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .content-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .content-section h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #222;
+            padding-bottom: 10px;
+        }
+
+        .content-section p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+            color: #ccc;
+            line-height: 1.8;
+        }
+
+        .highlight-text {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 40px auto;
+        }
+
+        .timeline-item {
+            padding: 20px;
+            border-left: 2px solid var(--primary);
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 0 8px 8px 0;
+            transition: var(--transition);
+        }
+
+        .timeline-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateX(5px);
+        }
+
+        .timeline-date {
+            font-family: var(--font-mono);
+            color: var(--secondary);
+            font-size: 0.9rem;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .timeline-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+
+        .timeline-location {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            display: block;
+        }
+
+        .project-details {
+            background: #0a0a0a;
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            transition: var(--transition);
+        }
+
+        .project-details:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.05);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            background: #111;
+            border: 1px solid #333;
+            color: var(--secondary);
+            border-radius: 4px;
+        }
+
+        .detail-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+
+        .detail-list li {
+            margin-bottom: 10px;
+            display: flex;
+            gap: 10px;
+            color: #ccc;
+        }
+
+        .detail-list i {
+            color: var(--primary);
+            margin-top: 5px;
+        }
+
+        .social-icons-sub {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 50px;
+            font-size: 1.5rem;
+        }
+
+        .social-icons-sub a {
+            color: var(--text-color);
+            transition: var(--transition);
+        }
+
+        .social-icons-sub a:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .repo-link {
+            display: inline-block;
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: var(--transition);
+        }
+
+        .repo-link:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        /* Footer override for subpage */
+        footer {
+            margin-top: 50px;
+            padding-bottom: 30px;
+            text-align: center;
+            border-top: 1px solid #222;
+            padding-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Back Navigation -->
+    <a href="../" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+
+    <!-- Header -->
+    <header class="subpage-header">
+        <h1 class="glitch" style="font-size: 3rem; margin-bottom: 10px;">The Analyst</h1>
+        <p style="font-family: var(--font-mono); color: var(--text-muted);">Curiosity came first. Skills followed.</p>
+    </header>
+
+    <!-- Section 2: Early Curiosity -->
+    <section class="content-section">
+        <h2>Early Curiosity</h2>
+        <p>My interest in cybersecurity began in childhood. I was always curious about computers and how they worked
+            beyond the screen. It wasn't driven by hacking fantasies or a desire for mischief, but by a deep-seated need
+            to understand systems at their core.</p>
+        <p>For me, the digital world was a giant puzzle, and I wanted to know how all the pieces fit together—and what
+            happens when they don't.</p>
+    </section>
+
+    <!-- Section 3: The Accidental Entry -->
+    <section class="content-section">
+        <h2>The Accidental Entry (2019)</h2>
+        <p>In 2019, while wandering around Calicut on one of my food hunting trips, I stumbled upon a free cybersecurity
+            event. It was conducted by <strong class="highlight-text">RedTeam Hacker Academy</strong> during its early
+            days.</p>
+        <p>That event was a turning point. It opened my eyes to the real cyber world—beyond just curiosity and into a
+            structured discipline. The people I met, the discussions about ethical hacking, and the collective mindset
+            of the security community pushed me to dive deeper and commit to a formal path in cybersecurity.</p>
+    </section>
+
+    <!-- Section 4: Education & Formal Path -->
+    <section class="content-section">
+        <h2>Education & Formal Path</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <span class="timeline-date">2018 – 2020</span>
+                <span class="timeline-title">Higher Secondary Education</span>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-date">2020 – 2023</span>
+                <span class="timeline-title">Bachelor of Computer Applications (BCA)</span>
+                <span class="timeline-location">Calicut University</span>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-date">2024</span>
+                <span class="timeline-title">Certified Penetration Tester (CPT)</span>
+                <span class="timeline-location">RedTeam Hacker Academy, Kochi</span>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-date">2025 – Present</span>
+                <span class="timeline-title">Master of Computer Applications (MCA)</span>
+                <span class="timeline-location">IGNOU</span>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-date">2026 – Present</span>
+                <span class="timeline-title">Master of Tourism & Travel Management (MTM)</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Cybersecurity as a Discipline -->
+    <section class="content-section">
+        <h2>Cybersecurity as a Discipline</h2>
+        <p>Cybersecurity was never about quick money for me. Payment is earned by the value of work, not just the title.
+            Even in a professional corporate setting, compensation is justified by the tangible impact of the security
+            measures implemented.</p>
+        <p>For me, cyber work is both a profession and a hobby. It offers the unique freedom to work remotely, allowing
+            me to travel the world and build businesses while maintaining a disciplined, professional career in
+            security.</p>
+    </section>
+
+    <!-- Section 6: Projects & Hands-on Work -->
+    <section class="content-section">
+        <h2>Projects & Hands-on Work</h2>
+
+        <!-- WebGuard 1.0 -->
+        <div class="project-details">
+            <div class="project-header">
+                <h3 style="color: var(--secondary);">WebGuard 1.0 – Automated Web Vulnerability Scanner</h3>
+                <span class="timeline-date">2025</span>
+            </div>
+            <div class="project-tags">
+                <span class="tag">Python</span>
+                <span class="tag">OWASP Top 10</span>
+                <span class="tag">Web Security</span>
+            </div>
+            <p style="margin-top: 15px;">Built a Python-based modular web vulnerability scanner designed to automate the
+                discovery of common web security flaws.</p>
+            <ul class="detail-list">
+                <li><i class="fas fa-check"></i> Identified OWASP Top 10 issues including SQL Injection, XSS, and
+                    missing security headers.</li>
+                <li><i class="fas fa-check"></i> Validated efficacy using DVWA and OWASP Juice Shop.</li>
+                <li><i class="fas fa-check"></i> Generated automated HTML vulnerability reports for documentation.</li>
+                <li><i class="fas fa-check"></i> Gained hands-on experience in security testing and vulnerability
+                    reporting.</li>
+            </ul>
+        </div>
+
+        <!-- WebGuard v1.2 / v1.3 -->
+        <div class="project-details">
+            <div class="project-header">
+                <h3 style="color: var(--secondary);">WebGuard v1.2 / v1.3 – Advanced Automated Scanner</h3>
+                <span class="timeline-date">2025</span>
+            </div>
+            <div class="project-tags">
+                <span class="tag">Python</span>
+                <span class="tag">OWASP Top 10</span>
+                <span class="tag">VAPT</span>
+                <span class="tag">Web App Security</span>
+            </div>
+            <p style="margin-top: 15px;">Significant upgrades to the core scanner, enhancing detection capabilities and
+                architectural modularity.</p>
+            <ul class="detail-list">
+                <li><i class="fas fa-check"></i> Added detection for IDOR, Open Redirect, and authentication flaws.</li>
+                <li><i class="fas fa-check"></i> Refactored into a modular, plugin-based architecture for scalability.
+                </li>
+                <li><i class="fas fa-check"></i> Implemented color-coded terminal output for better readability.</li>
+                <li><i class="fas fa-check"></i> Enhanced automated HTML reporting with detailed remediation advice.
+                </li>
+                <li><i class="fas fa-check"></i> Tested extensively against DVWA, OWASP Juice Shop, and
+                    testphp.vulnweb.com.</li>
+                <li><i class="fas fa-check"></i> Strengthened both automated and manual VAPT skills.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Section 7: Continuous Building -->
+    <section class="content-section">
+        <h2>Continuous Building</h2>
+        <p>WebGuard is an evolving project. It reflects my journey from understanding systems to building tools that
+            secure them. A final version with more advanced features, including AI-driven vulnerability suggestion and
+            deeper integration with CI/CD pipelines, is planned.</p>
+        <p>The goal is constant learning, refinement, and maintaining real-world readiness in an ever-changing threat
+            landscape.</p>
+    </section>
+
+    <!-- Section 8: Code & Work -->
+    <section class="content-section" style="text-align: center; border-top: 1px solid #222; padding-top: 40px;">
+        <h2>Code & Work</h2>
+        <p>I build and document my technical work on GitHub.</p>
+        <div class="social-icons-sub">
+            <a href="https://github.com/bzrpilot" target="_blank" title="GitHub Profile">
+                <i class="fab fa-github" style="font-size: 2.5rem;"></i>
+            </a>
+        </div>
+
+        <div style="margin-top: 30px;">
+            <h3 style="font-size: 1.2rem; color: var(--secondary); margin-bottom: 15px;">Project Repositories</h3>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+                <a href="#" target="_blank" class="repo-link">WebGuard 1.0 – GitHub Repository</a>
+                <a href="#" target="_blank" class="repo-link">WebGuard v1.2 / v1.3 – GitHub Repository</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Basheer (bzr.pilot). All Rights Reserved.</p>
+    </footer>
+
+</body>
+
+</html>
