@@ -78,25 +78,94 @@
         <div class="container">
             <h2 class="section-title">About <span class="highlight">Me</span></h2>
             <div class="about-grid">
-                <div class="about-card cyber">
+                <div class="about-card cyber active" data-tab="analyst">
                     <i class="fas fa-shield-alt icon"></i>
                     <h3>The Analyst</h3>
                     <p>I am a passionate VAPT Analyst dedicated to identifying vulnerabilities before they can be
                         exploited. With a deep understanding of network security and ethical hacking, I help
                         organizations fortify their defenses against evolving cyber threats.</p>
                 </div>
-                <div class="about-card traveler">
-                    <i class="fas fa-plane-departure icon"></i>
-                    <h3>The Traveler</h3>
-                    <p>Beyond the terminal, I explore the world as a solo traveler. Known as <strong>bzr.pilot</strong>,
-                        I document my journeys through mobile photography, capturing the unseen beauty of diverse
-                        cultures and landscapes.</p>
-                </div>
-                <div class="about-card cinema">
+                <a href="traveler/" style="text-decoration: none; display: contents;">
+                    <div class="about-card traveler" data-tab="traveler">
+                        <i class="fas fa-plane-departure icon"></i>
+                        <h3>The Traveler</h3>
+                        <p>Beyond the terminal, I explore the world as a solo traveler. Known as
+                            <strong>bzr.pilot</strong>,
+                            I document my journeys through mobile photography, capturing the unseen beauty of diverse
+                            cultures and landscapes.</p>
+                    </div>
+                </a>
+                <div class="about-card cinema" data-tab="cinephile">
                     <i class="fas fa-video icon"></i>
                     <h3>The Cinephile</h3>
                     <p>Cinema is my escape. I analyze films with the same precision I apply to code. Check out my
                         reviews and watchlist on Letterboxd.</p>
+                </div>
+                <div class="about-card photographer" data-tab="photographer">
+                    <i class="fas fa-camera icon"></i>
+                    <h3>The Photographer</h3>
+                    <p>Through the lens, I freeze moments in time. Street photography and travel shots that tell stories
+                        beyond words.</p>
+                </div>
+                <div class="about-card builder" data-tab="builder">
+                    <i class="fas fa-brain icon"></i>
+                    <h3>The Builder</h3>
+                    <p>Building side brands and independent projects with a long-term vision. Experimenting with new
+                        ideas and the BlackZero Revolution.</p>
+                </div>
+            </div>
+
+            <div class="about-details">
+                <!-- Analyst Content -->
+                <div id="analyst" class="content-block active">
+                    <h3>The Analyst 🛡️</h3>
+                    <p><strong>Security First. Always.</strong></p>
+                    <p>My approach to cybersecurity is rooted in a proactive mindset. Whether it's VAPT, SOC operations,
+                        or security-first development, I focus on identifying risks before they become incidents.</p>
+                    <ul class="detail-list">
+                        <li><i class="fas fa-check"></i> Vulnerability Assessment & Penetration Testing (VAPT)</li>
+                        <li><i class="fas fa-check"></i> Security Operations Center (SOC) Procedures</li>
+                        <li><i class="fas fa-check"></i> Secure Code Review & Hardening</li>
+                    </ul>
+                </div>
+
+                <!-- Traveler Content -->
+                <div id="traveler" class="content-block">
+                    <h3>The Traveler 🥾</h3>
+                    <p><strong>The World is My Office.</strong></p>
+                    <p>I believe in the freedom of solo travel—walking the path less traveled, hitchhiking through new
+                        cities, and trekking into the unknown. It's about the roadmaps, the routes, and the philosophy
+                        of
+                        experiencing the world authentically.</p>
+                    <p class="quote">"Not all those who wander are lost."</p>
+                </div>
+
+                <!-- Cinephile Content -->
+                <div id="cinephile" class="content-block">
+                    <h3>The Cinephile 🎬</h3>
+                    <p><strong>Storytelling Through Frames.</strong></p>
+                    <p>From the visual grandeur of anime to the subtle storytelling of world cinema, I am a student of
+                        the craft. I appreciate deep character arcs, visual metaphors, and the power of a well-told
+                        story.</p>
+                </div>
+
+                <!-- Photographer Content -->
+                <div id="photographer" class="content-block">
+                    <h3>The Photographer 📸</h3>
+                    <p><strong>Capturing the Unseen.</strong></p>
+                    <p>Travel and street photography are my mediums for documenting reality. Whether it's a bustling
+                        market or a quiet mountain peak, every photo holds a memory.</p>
+                    <p><em>(Photo grid coming soon...)</em></p>
+                </div>
+
+                <!-- Builder Content -->
+                <div id="builder" class="content-block">
+                    <h3>The Builder / Business 🧠</h3>
+                    <p><strong>Vision & Execution.</strong></p>
+                    <p>I devote time to building independent projects and side brands. With a focus on long-term vision,
+                        including the <strong>BlackZero Revolution</strong>, I am constantly experimenting with new
+                        business
+                        ideas and creative ventures.</p>
                 </div>
             </div>
         </div>

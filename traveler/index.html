@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Traveler | Basheer</title>
+    <meta name="description" content="Solo journeys, hitchhiking, and stories from the road by Basheer (bzr.pilot).">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&family=Inter:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+
+    <style>
+        /* Specific overrides for traveler page */
+        .travel-hero {
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../assets/img/travel-bg.jpg');
+            /* Placeholder if image doesn't exist, will fallback to color */
+            background-color: #111;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .travel-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .travel-philosophy {
+            background-color: #0a0a0a;
+            padding: 80px 5%;
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .philosophy-card {
+            padding: 30px;
+            background: #111;
+            border: 1px solid #222;
+            transition: var(--transition);
+        }
+
+        .philosophy-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .philosophy-card i {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .roadmap-list {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .roadmap-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid #222;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .roadmap-list li.future {
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .photo-placeholder {
+            height: 250px;
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #444;
+            border: 1px solid #222;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            color: var(--text-color);
+            font-family: var(--font-mono);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 100;
+        }
+
+        .back-link:hover {
+            color: var(--primary);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Back to Home -->
+    <a href="/" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+
+    <!-- Hero Section -->
+    <header class="travel-hero">
+        <div class="hero-content">
+            <h1>The <span class="highlight">Traveler</span></h1>
+            <p class="typewriter">Walking. Hitchhiking. Living Light.</p>
+        </div>
+    </header>
+
+    <!-- Philosophy Section -->
+    <section class="section travel-philosophy">
+        <div class="container">
+            <h2 class="section-title">My <span class="highlight">Philosophy</span></h2>
+            <div class="philosophy-grid">
+                <div class="philosophy-card">
+                    <i class="fas fa-hiking"></i>
+                    <h3>Solo Journeys</h3>
+                    <p>There is a unique clarity found in solitude. Traveling alone forces you to trust your instincts,
+                        open up to strangers, and navigate the world on your own terms.</p>
+                </div>
+                <div class="philosophy-card">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3>The Kindness of Strangers</h3>
+                    <p>When you travel without the shield of money or luxury, you experience the raw kindness of people.
+                        From shared meals to offered rides, humanity is best seen from the road.</p>
+                </div>
+                <div class="philosophy-card">
+                    <i class="fas fa-globe-asia"></i>
+                    <h3>Cultural Immersion</h3>
+                    <p>I don't just visit places; I try to live in them. Whether it's a remote village or a bustling
+                        city, the goal is to understand the rhythm of life there.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hitchhiking & Walking -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">On The <span class="highlight">Road</span></h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <i class="fas fa-thumbs-up icon"></i>
+                    <h3>Hitchhiking</h3>
+                    <p>The thumb is my ticket. Hitchhiking isn't just free transport used for A to B; it's a series of
+                        conversations, stories, and connections with people I'd never meet otherwise. It teaches
+                        patience and faith in humanity.</p>
+                </div>
+                <div class="about-card">
+                    <i class="fas fa-walking icon"></i>
+                    <h3>Walking</h3>
+                    <p>Slow travel allows you to see everything. I engage in long-distance walking, feeling every mile
+                        and observing the gradual change in landscapes and cultures.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hosts & Community -->
+    <section class="section bg-darker">
+        <div class="container">
+            <h2 class="section-title">Community & <span class="highlight">Stays</span></h2>
+            <div class="content-block active" style="display:block; opacity:1;">
+                <p>My shelter is often provided by the community. I seek out:</p>
+                <ul class="detail-list"
+                    style="justify-content: center; display: flex; flex-direction: column; align-items: center;">
+                    <li><i class="fas fa-home"></i> Local Stays & Homestays</li>
+                    <li><i class="fas fa-campground"></i> Camping in the Wild</li>
+                    <li><i class="fas fa-mosque"></i> Religious Shelters & Community Halls</li>
+                    <li><i class="fas fa-users"></i> Couchsurfing & Hospitality Networks</li>
+                </ul>
+                <p style="text-align: center; margin-top: 20px;" class="quote">"The best roof is the sky, and the best
+                    walls are the horizon."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Treks -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Treks & <span class="highlight">Groups</span></h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto;">While I often travel solo, I cherish the
+                moments when paths cross. Joining other potential solo travelers for treks, long walks, or impromptu
+                adventures adds a shared chapter to our individual stories.</p>
+        </div>
+    </section>
+
+    <!-- Roadmap -->
+    <section class="section bg-darker">
+        <div class="container">
+            <h2 class="section-title">The <span class="highlight">Roadmap</span></h2>
+            <div class="about-card" style="max-width: 600px; margin: 0 auto;">
+                <ul class="roadmap-list">
+                    <li>
+                        <span><i class="fas fa-map-marker-alt" style="color:var(--primary)"></i> Kerala, India</span>
+                        <span>[Explored]</span>
+                    </li>
+                    <li>
+                        <span><i class="fas fa-map-marker-alt" style="color:var(--primary)"></i> Tamil Nadu,
+                            India</span>
+                        <span>[Explored]</span>
+                    </li>
+                    <li>
+                        <span><i class="fas fa-map-marker-alt" style="color:var(--primary)"></i> Karnataka, India</span>
+                        <span>[Explored]</span>
+                    </li>
+                    <li class="future">
+                        <span><i class="far fa-circle"></i> North East India</span>
+                        <span>[Planned]</span>
+                    </li>
+                    <li class="future">
+                        <span><i class="far fa-circle"></i> Nepal Circuit</span>
+                        <span>[Dreaming]</span>
+                    </li>
+                    <li class="future">
+                        <span><i class="far fa-circle"></i> Southeast Asia Backpacking</span>
+                        <span>[Future]</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photography -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Captured <span class="highlight">Moments</span></h2>
+            <p style="text-align: center;">Street photography, landscapes, and the faces of the road.</p>
+            <div class="photo-gallery">
+                <!-- Placeholders for future images -->
+                <div class="photo-placeholder"><i class="fas fa-camera"></i></div>
+                <div class="photo-placeholder"><i class="fas fa-mountain"></i></div>
+                <div class="photo-placeholder"><i class="fas fa-road"></i></div>
+                <div class="photo-placeholder"><i class="fas fa-street-view"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Basheer (bzr.pilot). All Rights Reserved.</p>
+    </footer>
+
+</body>
+
+</html>

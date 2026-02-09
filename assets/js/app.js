@@ -121,3 +121,34 @@ window.onclick = function (event) {
         if (modal) modal.style.display = "none";
     }
 }
+
+// About Section Tabs
+const aboutCards = document.querySelectorAll('.about-card');
+const contentBlocks = document.querySelectorAll('.content-block');
+
+aboutCards.forEach(card => {
+    card.addEventListener('click', () => {
+        // Remove active class from all cards
+        aboutCards.forEach(c => c.classList.remove('active'));
+        // Add active class to clicked card
+        card.classList.add('active');
+
+        // Hide all content blocks
+        contentBlocks.forEach(block => {
+            block.classList.remove('active');
+            block.style.display = 'none'; // Ensure it's hidden immediately for transition logic
+        });
+
+        // Show target content block
+        const target = card.getAttribute('data-tab');
+        const targetBlock = document.getElementById(target);
+
+        if (targetBlock) {
+            // Small timeout to allow display:block to apply before opacity transition
+            targetBlock.style.display = 'block';
+            setTimeout(() => {
+                targetBlock.classList.add('active');
+            }, 10);
+        }
+    });
+});
