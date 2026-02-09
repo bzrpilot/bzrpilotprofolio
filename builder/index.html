@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Builder | Basheer</title>
+    <meta name="description" content="The Builder - Exploring business, innovation, and the BlackZero Revolution.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&family=Inter:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <style>
+        /* Subpage specific styles to ensure consistency with main theme */
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-body);
+        }
+
+        .subpage-header {
+            padding: 100px 5% 50px;
+            text-align: center;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            font-family: var(--font-mono);
+            color: var(--primary);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 100;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .content-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .content-section h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #222;
+            padding-bottom: 10px;
+        }
+
+        .content-section p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+            color: #ccc;
+            line-height: 1.8;
+        }
+
+        .highlight-text {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .cta-box {
+            background: linear-gradient(145deg, #0a0a0a, #111);
+            border: 1px solid var(--primary);
+            padding: 30px;
+            text-align: center;
+            margin: 40px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: #000;
+            padding: 12px 30px;
+            font-family: var(--font-mono);
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-top: 15px;
+            transition: var(--transition);
+            box-shadow: 0 0 10px rgba(0, 255, 65, 0.4);
+        }
+
+        .cta-btn:hover {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .social-icons-sub {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 50px;
+            font-size: 1.5rem;
+        }
+
+        .social-icons-sub a {
+            color: var(--text-color);
+            transition: var(--transition);
+        }
+
+        .social-icons-sub a:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .role-badge {
+            display: inline-block;
+            background: #111;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--secondary);
+            margin-bottom: 10px;
+            border: 1px solid #333;
+        }
+
+        /* Footer override for subpage */
+        footer {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Back Navigation -->
+    <a href="../" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+
+    <!-- Header -->
+    <header class="subpage-header">
+        <h1 class="glitch" style="font-size: 3rem; margin-bottom: 10px;">The Builder</h1>
+        <p style="font-family: var(--font-mono); color: var(--text-muted);">Ideas are easy. Building is the real work.
+        </p>
+    </header>
+
+    <!-- BlackZero Revolution Section -->
+    <section class="content-section">
+        <h2>BlackZero Revolution (BZR)</h2>
+        <p>This is my core vision and the mother company. <strong class="highlight-text">BlackZero Revolution</strong>
+            is currently in progress, evolving, and not yet fully launched.</p>
+        <p>We are building a long-term ecosystem for businesses, products, and digital assets. The focus is strictly on
+            quality, usefulness, and sustainable growth, rather than speed or quick trends.</p>
+    </section>
+
+    <!-- Vexel Section -->
+    <section class="content-section">
+        <h2>Vexel <span style="font-size: 0.6em; color: var(--text-muted);">(Creative Studio)</span></h2>
+        <p>Vexel is a creative brand I built with a close friend. We operate primarily as a practical, execution-first
+            creative studio.</p>
+        <p>Our focus includes posters, graphic design, UI/UX, and digital marketing strategies.</p>
+        <div style="margin-top: 15px;">
+            <a href="https://www.instagram.com/buildwithvexel" target="_blank" class="role-badge"
+                style="text-decoration: none;">
+                <i class="fab fa-instagram"></i> Follow Vexel on Instagram
+            </a>
+        </div>
+    </section>
+
+    <!-- Oneside Section -->
+    <section class="content-section">
+        <h2>Oneside <span style="font-size: 0.6em; color: var(--text-muted);">(Fashion & Lifestyle)</span></h2>
+        <p>Oneside is a brand I currently run with a partner, focused on premium clothing and lifestyle items. We
+            operate with a quality-first and value-driven mindset.</p>
+        <p>More products and categories are planned for the future as we expand our vision.</p>
+        <div style="margin-top: 15px;">
+            <a href="https://www.instagram.com/oneside.clo" target="_blank" class="role-badge"
+                style="text-decoration: none;">
+                <i class="fab fa-instagram"></i> Follow Oneside on Instagram
+            </a>
+        </div>
+
+        <!-- Oneside Store CTA -->
+        <div class="cta-box">
+            <h3>Oneside Official Store</h3>
+            <p>Check out our latest collections.</p>
+            <a href="https://onesideforall.myshopify.com/" target="_blank" class="cta-btn">Visit Oneside Official
+                Store</a>
+            <p style="margin-top: 15px; font-size: 0.9rem; color: var(--secondary);">
+                Use code <strong>BZR39</strong> for 39% extra off!
+            </p>
+        </div>
+    </section>
+
+    <!-- Entrepreneurial Mindset -->
+    <section class="content-section">
+        <h2>Entrepreneurial Mindset</h2>
+        <p>I constantly think about building useful, premium products at fair prices. My ideas focus on long-term value,
+            not quick profit.</p>
+        <p>I see businesses as tools to strengthen communities. I am especially interested in ideas that can support
+            solo travelers, hosting networks, and shared resources.</p>
+    </section>
+
+    <!-- Vision -->
+    <section class="content-section">
+        <h2>Vision for the Future</h2>
+        <p>Many ideas are still unbuilt, waiting for the right time, people, and execution. <strong
+                class="highlight-text">BZR</strong> will eventually unify brands, products, and assets under one
+            cohesive vision.</p>
+    </section>
+
+    <!-- Subpage Footer / Socials -->
+    <section class="content-section" style="text-align: center; border-top: 1px solid #222; padding-top: 40px;">
+        <h3>Connect with the Brands</h3>
+        <div class="social-icons-sub">
+            <!-- Vexel -->
+            <a href="https://www.instagram.com/buildwithvexel" target="_blank" title="Vexel Instagram"><i
+                    class="fab fa-instagram"></i></a>
+            <!-- Oneside -->
+            <a href="https://www.instagram.com/oneside.clo" target="_blank" title="Oneside Instagram"><i
+                    class="fab fa-instagram"></i></a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Basheer (bzr.pilot). All Rights Reserved.</p>
+    </footer>
+
+</body>
+
+</html>
