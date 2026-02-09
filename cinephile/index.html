@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Cinephile | Basheer</title>
+    <meta name="description"
+        content="Cinema is not entertainment for me — it is lived experience. Basheer (bzr.pilot)'s cinephile journey.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&family=Inter:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+
+    <style>
+        /* Specific overrides for cinephile page */
+        .cine-hero {
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../assets/img/cinema-bg.jpg');
+            /* Fallback color/gradient if image doesn't exist */
+            background-color: #050505;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .cine-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cine-hero p.subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-style: italic;
+        }
+
+        .cine-section {
+            background-color: #0a0a0a;
+            padding: 80px 5%;
+        }
+
+        .cine-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .cine-card {
+            padding: 30px;
+            background: #111;
+            border: 1px solid #222;
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .cine-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .cine-card i {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            color: var(--text-color);
+            font-family: var(--font-mono);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 100;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            color: var(--primary);
+        }
+
+        .letterboxd-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #14181c;
+            /* Letterboxd dark background color */
+            padding: 12px 24px;
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: var(--transition);
+            border: 1px solid #2c3440;
+        }
+
+        .letterboxd-btn:hover {
+            background: #2c3440;
+            color: #40bcf4;
+            /* Letterboxd blue hover */
+            border-color: #40bcf4;
+        }
+
+        /* Specific section styling mimicking script/screenplay format for headers maybe? keeping it simple for now to match site */
+    </style>
+</head>
+
+<body>
+
+    <!-- Back to Home -->
+    <a href="/" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+
+    <!-- Hero Section -->
+    <header class="cine-hero">
+        <div class="hero-content">
+            <h1>The <span class="highlight">Cinephile</span></h1>
+            <p class="subtitle">"Cinema is not entertainment for me — it is lived experience."</p>
+        </div>
+    </header>
+
+    <!-- Philosophy Section -->
+    <section class="section cine-section">
+        <div class="container">
+            <h2 class="section-title">Personal <span class="highlight">Philosophy</span></h2>
+            <div class="cine-grid">
+                <div class="cine-card">
+                    <i class="fas fa-heart-broken"></i>
+                    <h3>Lived Experience</h3>
+                    <p>I don't easily cry or react emotionally to real-life events. But cinema breaks through me. When
+                        emotions hit in a film, I don't just watch the story — I inhabit it. I live as the character.
+                    </p>
+                </div>
+                <div class="cine-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>Emotional Intelligence</h3>
+                    <p>Movies, series, and anime have shaped how I feel, think, and understand people. They are the
+                        mirror through which I view the complexity of human emotion.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Journey Into <span class="highlight">Cinema</span></h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <i class="fas fa-tv icon"></i>
+                    <h3>The Awakening</h3>
+                    <p>My first English foreign language series was <strong>"13 Reasons Why"</strong>. It wasn't just a
+                        show; it was a turning point that opened me to global storytelling.</p>
+                </div>
+                <div class="about-card">
+                    <i class="fas fa-dragon icon"></i>
+                    <h3>The Anime Gateway</h3>
+                    <p><strong>"Vinland Saga"</strong> was my first anime. It redefined my understanding of narrative
+                        depth, proving that animation is a powerful medium for mature, complex storytelling.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section bg-darker">
+        <div class="container">
+            <h2 class="section-title">Cinema As <span class="highlight">Education</span></h2>
+            <div class="content-block active" style="display:block; opacity:1;">
+                <p>Stories became teachers where classrooms failed.</p>
+                <ul class="detail-list"
+                    style="justify-content: center; display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
+                    <li><i class="fas fa-language"></i> English & Foreign Languages</li>
+                    <li><i class="fas fa-comments"></i> Dialogue & Communication</li>
+                    <li><i class="fas fa-users"></i> Human Psychology & Perspectives</li>
+                    <li><i class="fas fa-lightbulb"></i> Understanding Emotions</li>
+                </ul>
+                <p
+                    style="text-align: center; margin-top: 20px; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    Watching English and foreign films improved my English more than formal education ever did. It
+                    taught me the nuance of language and conversation.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Theatre Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Love For The <span class="highlight">Theatre</span></h2>
+            <div class="cine-grid" style="grid-template-columns: 1fr; max-width: 800px; margin: 0 auto;">
+                <div class="cine-card" style="text-align: center;">
+                    <i class="fas fa-ticket-alt"></i>
+                    <h3>The Dark Hall</h3>
+                    <p>The theatre is not just a place; it's a feeling. The silence, the sound, the giant screen—it
+                        creates the purest connection to the art. I often go alone or with friends, but the experience
+                        is always personal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Passion Section -->
+    <section class="section bg-darker">
+        <div class="container">
+            <h2 class="section-title">Series, Anime & <span class="highlight">Film</span></h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 30px auto;">
+                I have watched a large number of series, anime, and films. From grounded human dramas to intense anime
+                narratives, storytelling across all formats deeply inspires me.
+            </p>
+
+            <div style="text-align: center; margin-top: 50px;">
+                <h3>My Log</h3>
+                <p style="margin-bottom: 20px; color: var(--text-muted);">Track my watchlist, reviews, and ratings.</p>
+                <a href="https://boxd.it/cNfez" target="_blank" class="letterboxd-btn">
+                    <i class="fas fa-film"></i> Follow on Letterboxd
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Basheer (bzr.pilot). All Rights Reserved.</p>
+    </footer>
+
+</body>
+
+</html>

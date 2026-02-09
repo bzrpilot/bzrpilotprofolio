@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Photographer | Basheer</title>
+    <meta name="description"
+        content="I don’t chase photos. I notice moments. Basheer (bzr.pilot)'s photography portfolio.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&family=Inter:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+
+    <style>
+        /* Specific overrides for photographer page */
+        /* Reusing cinephile hero style but with potential to change bg later if needed */
+        .photo-hero {
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: #050505;
+            /* Default dark background */
+            /* Add a subtle texture or gradient if desired, keeping it dark and minimal */
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../assets/img/photography-bg.jpg');
+            /* Placeholder for future bg */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .photo-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .photo-hero p.subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-style: italic;
+        }
+
+        .photo-section {
+            background-color: #0a0a0a;
+            padding: 80px 5%;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .photo-card {
+            padding: 30px;
+            background: #111;
+            border: 1px solid #222;
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .photo-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .photo-card i {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            color: var(--text-color);
+            font-family: var(--font-mono);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 100;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            color: var(--primary);
+        }
+
+        .pinterest-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #bd081c;
+            /* Pinterest red */
+            padding: 12px 24px;
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: var(--transition);
+            border: 1px solid #bd081c;
+        }
+
+        .pinterest-btn:hover {
+            background: #a00718;
+            border-color: #a00718;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Back to Home -->
+    <a href="/" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+
+    <!-- Hero Section -->
+    <header class="photo-hero">
+        <div class="hero-content">
+            <h1>The <span class="highlight">Photographer</span></h1>
+            <p class="subtitle">"I don’t chase photos. I notice moments."</p>
+        </div>
+    </header>
+
+    <!-- Mobile Photography Philosophy -->
+    <section class="section photo-section">
+        <div class="container">
+            <h2 class="section-title">Mobile <span class="highlight">Philosophy</span></h2>
+            <div class="photo-grid">
+                <div class="photo-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Instinct Over Setup</h3>
+                    <p>I shoot almost entirely on mobile. Photography for me is instinct, not setup. I capture what
+                        feels
+                        worth documenting, not what looks impressive.</p>
+                </div>
+                <div class="photo-card">
+                    <i class="fas fa-eye"></i>
+                    <h3>Lived Moments</h3>
+                    <p>Many moments are lived fully before they are ever photographed. I prefer feeling the place over
+                        framing it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Moments Over Perfection -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Moments Over <span class="highlight">Perfection</span></h2>
+            <div class="content-block active"
+                style="display:block; opacity:1; text-align: center; max-width: 800px; margin: 0 auto;">
+                <p>I don’t shoot everything I see.</p>
+                <p>Sometimes I miss shots because I’m present in the moment. When I click, it’s because the moment asked
+                    to be remembered.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subjects I Capture -->
+    <section class="section bg-darker">
+        <div class="container">
+            <h2 class="section-title">Subjects I <span class="highlight">Capture</span></h2>
+            <div class="photo-grid">
+                <div class="photo-card">
+                    <i class="fas fa-route"></i>
+                    <h3>Travel & Streets</h3>
+                    <p>Random scenes, places I pass through, and the unplanned visuals that carry quiet stories.</p>
+                </div>
+                <div class="photo-card">
+                    <i class="fas fa-city"></i>
+                    <h3>Architecture</h3>
+                    <p>Buildings and structures that stand as silent witnesses to time and history.</p>
+                </div>
+                <div class="photo-card">
+                    <i class="fas fa-user-friends"></i>
+                    <h3>Portraits</h3>
+                    <p>Faces that tell a story without words, captured in their natural element.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introversion & Process -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Process & <span class="highlight">Introversion</span></h2>
+            <div class="content-block active" style="display:block; opacity:1; max-width: 800px; margin: 0 auto;">
+                <p>Being introverted has made me miss opportunities to shoot more. I don’t always approach people or
+                    scenes comfortably.</p>
+                <p>I also have a large amount of unedited photo and video content. Many stories exist in raw form,
+                    waiting to be shaped.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Storytelling & Gear -->
+    <section class="section bg-darker">
+        <div class="container">
+            <h2 class="section-title">Storytelling & <span class="highlight">Gear</span></h2>
+            <div class="photo-grid">
+                <div class="photo-card">
+                    <i class="fab fa-instagram"></i>
+                    <h3>Instagram Stories</h3>
+                    <p>I mostly share stories through Instagram. Highlights are used to preserve moments. Photography
+                        for
+                        me is about storytelling, not metrics or reach.</p>
+                </div>
+                <div class="photo-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>The Tool</h3>
+                    <p>Currently shooting on an <strong>iPhone 15 (base model)</strong>. No professional claim — just a
+                        tool
+                        that stays with me everywhere.</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 50px;">
+                <h3>See My Work</h3>
+                <p style="margin-bottom: 20px; color: var(--text-muted);">Explore my visual collections on Pinterest.
+                </p>
+                <a href="https://pin.it/688El1dtQ" target="_blank" class="pinterest-btn">
+                    <i class="fab fa-pinterest"></i> Follow on Pinterest
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Basheer (bzr.pilot). All Rights Reserved.</p>
+    </footer>
+
+</body>
+
+</html>
