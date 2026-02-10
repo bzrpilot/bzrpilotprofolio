@@ -152,3 +152,63 @@ aboutCards.forEach(card => {
         }
     });
 });
+
+// Certificate Filtering Logic
+const filterBtns = document.querySelectorAll('.filter-btn');
+const certCards = document.querySelectorAll('.cert-card');
+
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterBtns.forEach(b => b.classList.remove('active'));
+        // Add active class to clicked button
+        btn.classList.add('active');
+
+        const filterValue = btn.getAttribute('data-filter');
+
+        certCards.forEach(card => {
+            if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                card.style.display = 'block';
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'scale(1)';
+                }, 10);
+            } else {
+                card.style.opacity = '0';
+                card.style.transform = 'scale(0.8)';
+                setTimeout(() => {
+                    card.style.display = 'none';
+                }, 300);
+            }
+        });
+    });
+});
+
+// Certificate Lightbox Logic
+const certModal = document.getElementById('cert-modal');
+const modalImg = document.getElementById('modal-img');
+const certClose = document.querySelector('.cert-close');
+const certImgWrappers = document.querySelectorAll('.cert-img-wrapper');
+
+certImgWrappers.forEach(wrapper => {
+    wrapper.addEventListener('click', () => {
+        const img = wrapper.querySelector('img');
+        if (certModal && modalImg) {
+            modalImg.src = img.src;
+            certModal.style.display = 'flex';
+        }
+    });
+});
+
+if (certClose) {
+    certClose.onclick = function () {
+        if (certModal) certModal.style.display = "none";
+    }
+}
+
+// Close lightbox when clicking outside the image
+window.addEventListener('click', (event) => {
+    if (event.target == certModal) {
+        if (certModal) certModal.style.display = "none";
+    }
+});
