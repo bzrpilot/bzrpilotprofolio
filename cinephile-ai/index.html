@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinephile.ai | Basheer</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&family=Inter:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS from root -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <style>
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-body);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .ai-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            max-width: 1000px;
+            margin: 80px auto 20px;
+            width: 90%;
+            background: rgba(10, 10, 10, 0.8);
+            border: 1px solid #222;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(0, 255, 65, 0.05);
+        }
+
+        .ai-header {
+            background: #111;
+            padding: 15px 20px;
+            border-bottom: 1px solid #222;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .ai-status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--primary);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--primary);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .chat-output {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+            background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 2px);
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 12px 18px;
+            border-radius: 4px;
+            line-height: 1.5;
+        }
+
+        .message.ai {
+            align-self: flex-start;
+            background: rgba(0, 243, 255, 0.05);
+            border-left: 2px solid var(--secondary);
+            color: var(--text-color);
+        }
+
+        .message.user {
+            align-self: flex-end;
+            background: rgba(0, 255, 65, 0.05);
+            border-right: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .chat-input-area {
+            padding: 20px;
+            background: #0a0a0a;
+            border-top: 1px solid #222;
+            display: flex;
+            gap: 15px;
+        }
+
+        .chat-input {
+            flex: 1;
+            background: #111;
+            border: 1px solid #333;
+            padding: 12px 15px;
+            color: var(--text-color);
+            font-family: var(--font-mono);
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .chat-input:focus {
+            border-color: var(--secondary);
+        }
+
+        .send-btn {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 0 20px;
+            cursor: pointer;
+            font-family: var(--font-mono);
+            transition: all 0.3s;
+        }
+
+        .send-btn:hover {
+            background: var(--primary);
+            color: #000;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 25px;
+            left: 5%;
+            color: var(--text-color);
+            font-family: var(--font-mono);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 1000;
+        }
+
+        .back-link:hover {
+            color: var(--secondary);
+        }
+
+        /* Scrollbar */
+        .chat-output::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .chat-output::-webkit-scrollbar-thumb {
+            background: #222;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="../" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+
+    <div class="ai-container">
+        <div class="ai-header">
+            <div class="ai-status">
+                <div class="status-dot"></div>
+                <span>CINEPHILE.AI v1.0 // STORY ANALYSIS ENGINE</span>
+            </div>
+            <div class="ai-meta" style="font-size: 0.7rem; color: #555; font-family: var(--font-mono);">
+                DOMAIN_RESTRICTION: CINEMA_SERIES_ANIME
+            </div>
+        </div>
+        <div class="chat-output" id="chat-output">
+            <div class="message ai">
+                System initialized. Greeting, Cinephile. I am your Story Analysis AI.
+                Ask me about movies, series, anime, character arcs, or thematic depth.
+                What narrative shall we explore today?
+            </div>
+        </div>
+        <form class="chat-input-area" id="chat-form">
+            <input type="text" class="chat-input" id="user-input"
+                placeholder="Enter query (e.g. recommend a sci-fi series)..." autocomplete="off">
+            <button type="submit" class="send-btn">EXECUTE</button>
+        </form>
+    </div>
+
+    <script>
+        const chatOutput = document.getElementById('chat-output');
+        const chatForm = document.getElementById('chat-form');
+        const userInput = document.getElementById('user-input');
+
+        // Session ID for memory isolation
+        const sessionId = Math.random().toString(36).substring(2, 15);
+
+        function addMessage(text, sender) {
+            const div = document.createElement('div');
+            div.className = `message ${sender}`;
+            div.textContent = text;
+            chatOutput.appendChild(div);
+            chatOutput.scrollTop = chatOutput.scrollHeight;
+        }
+
+        async function getAIResponse(message) {
+            try {
+                const response = await fetch("/api/chat", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        domain: "cinephile",
+                        message: message,
+                        sessionId: sessionId
+                    })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.error || "Connection failed.");
+                }
+
+                return data.response;
+            } catch (error) {
+                console.error(error);
+                return `[ERROR] ${error.message || "AI core offline. Please check connection."}`;
+            }
+        }
+
+        chatForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const text = userInput.value.trim();
+            if (!text) return;
+
+            addMessage(text, 'user');
+            userInput.value = '';
+
+            addMessage("DECONSTRUCTING...", 'ai');
+            const lastMessage = chatOutput.lastElementChild;
+
+            const aiResponse = await getAIResponse(text);
+            lastMessage.textContent = aiResponse;
+        });
+    </script>
+</body>
+
+</html>

@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cinephile.ai | Basheer</title>
+    <title>The Cinephile | Basheer</title>
+    <meta name="description" content="The Cinephile - Cinema as lived experience and a journey into storytelling.">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,258 +14,174 @@
         rel="stylesheet">
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Custom CSS from root -->
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="../assets/css/styles.css">
     <style>
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
             font-family: var(--font-body);
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
         }
 
-        .ai-container {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            max-width: 1000px;
-            margin: 80px auto 20px;
-            width: 90%;
-            background: rgba(10, 10, 10, 0.8);
-            border: 1px solid #222;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 0 30px rgba(0, 255, 65, 0.05);
-        }
-
-        .ai-header {
-            background: #111;
-            padding: 15px 20px;
-            border-bottom: 1px solid #222;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .ai-status {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            color: var(--primary);
-        }
-
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            background: var(--primary);
-            border-radius: 50%;
-            box-shadow: 0 0 10px var(--primary);
-            animation: pulse 1.5s infinite;
-        }
-
-        @keyframes pulse {
-            0% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.4;
-            }
-
-            100% {
-                opacity: 1;
-            }
-        }
-
-        .chat-output {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            font-family: var(--font-mono);
-            font-size: 0.95rem;
-            background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 2px);
-        }
-
-        .message {
-            max-width: 80%;
-            padding: 12px 18px;
-            border-radius: 4px;
-            line-height: 1.5;
-        }
-
-        .message.ai {
-            align-self: flex-start;
-            background: rgba(0, 243, 255, 0.05);
-            border-left: 2px solid var(--secondary);
-            color: var(--text-color);
-        }
-
-        .message.user {
-            align-self: flex-end;
-            background: rgba(0, 255, 65, 0.05);
-            border-right: 2px solid var(--primary);
-            color: var(--primary);
-        }
-
-        .chat-input-area {
-            padding: 20px;
-            background: #0a0a0a;
-            border-top: 1px solid #222;
-            display: flex;
-            gap: 15px;
-        }
-
-        .chat-input {
-            flex: 1;
-            background: #111;
-            border: 1px solid #333;
-            padding: 12px 15px;
-            color: var(--text-color);
-            font-family: var(--font-mono);
-            outline: none;
-            transition: border-color 0.3s;
-        }
-
-        .chat-input:focus {
-            border-color: var(--secondary);
-        }
-
-        .send-btn {
-            background: transparent;
-            border: 1px solid var(--primary);
-            color: var(--primary);
-            padding: 0 20px;
-            cursor: pointer;
-            font-family: var(--font-mono);
-            transition: all 0.3s;
-        }
-
-        .send-btn:hover {
-            background: var(--primary);
-            color: #000;
+        .subpage-header {
+            padding: 100px 5% 50px;
+            text-align: center;
         }
 
         .back-link {
             position: absolute;
-            top: 25px;
-            left: 5%;
-            color: var(--text-color);
+            top: 30px;
+            left: 30px;
             font-family: var(--font-mono);
+            color: var(--primary);
+            font-size: 0.9rem;
             display: flex;
             align-items: center;
             gap: 8px;
-            z-index: 1000;
+            z-index: 100;
         }
 
         .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .content-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .content-section h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #222;
+            padding-bottom: 10px;
+        }
+
+        .content-section p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+            color: #ccc;
+            line-height: 1.8;
+        }
+
+        .highlight-text {
             color: var(--secondary);
+            font-weight: 600;
         }
 
-        /* Scrollbar */
-        .chat-output::-webkit-scrollbar {
-            width: 5px;
+        .social-icons-sub {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 50px;
+            font-size: 1.5rem;
         }
 
-        .chat-output::-webkit-scrollbar-thumb {
-            background: #222;
-            border-radius: 10px;
+        .social-icons-sub a {
+            color: var(--text-color);
+            transition: var(--transition);
+        }
+
+        .social-icons-sub a:hover {
+            color: #eb4034;
+            /* Letterboxd red-orange approximate */
+            transform: translateY(-3px);
+        }
+
+        footer {
+            margin-top: 50px;
+            padding-bottom: 30px;
+            text-align: center;
+            border-top: 1px solid #222;
+            padding-top: 30px;
+        }
+
+        .glitch {
+            position: relative;
+            display: inline-block;
         }
     </style>
 </head>
 
 <body>
+
+    <!-- Back Navigation -->
     <a href="../" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
 
-    <div class="ai-container">
-        <div class="ai-header">
-            <div class="ai-status">
-                <div class="status-dot"></div>
-                <span>CINEPHILE.AI v1.0 // STORY ANALYSIS ENGINE</span>
-            </div>
-            <div class="ai-meta" style="font-size: 0.7rem; color: #555; font-family: var(--font-mono);">
-                DOMAIN_RESTRICTION: CINEMA_SERIES_ANIME
-            </div>
+    <!-- Header -->
+    <header class="subpage-header">
+        <h1 class="glitch" style="font-size: 3rem; margin-bottom: 10px;">The Cinephile</h1>
+        <p style="font-family: var(--font-mono); color: var(--text-muted);">Cinema is not entertainment for me — it is
+            lived experience.</p>
+    </header>
+
+    <!-- Section 2: Personal Cinema Philosophy -->
+    <section class="content-section">
+        <h2>Personal Cinema Philosophy</h2>
+        <p>I don’t easily cry or react emotionally to real-life events, but cinema breaks through me. When emotions hit
+            in a film, I live as the character. I don’t watch stories — I inhabit them.</p>
+        <p>Movies, series, and anime shape how I feel, think, and understand people. It's a bridge between my analytical
+            nature and the visceral depth of human expression.</p>
+    </section>
+
+    <!-- Section 3: Journey Into Cinema -->
+    <section class="content-section">
+        <h2>Journey Into Cinema</h2>
+        <p>My journey into global storytelling began with turning points that shifted my perspective forever. The first
+            foreign language series I ever watched was <strong class="highlight-text">“13 Reasons Why”</strong>, and my
+            introduction to anime was the visceral <strong class="highlight-text">“Vinland Saga”</strong>.</p>
+        <p>These weren’t just shows; they were mirrors that opened me to global storytelling, culture, and a new
+            spectrum of emotion.</p>
+    </section>
+
+    <!-- Section 4: Cinema as Education -->
+    <section class="content-section">
+        <h2>Cinema as Education</h2>
+        <p>Cinema has been my most profound teacher. Watching English and foreign films improved my English more than
+            school or any formal education ever could. It helped me understand emotions, dialogue, perspectives, and the
+            intricacies of human psychology.</p>
+        <p>In stories, I found lessons where classrooms failed, learning to decode the silent language of frames and the
+            power of well-crafted dialogue.</p>
+    </section>
+
+    <!-- Section 5: Love for the Theatre -->
+    <section class="content-section">
+        <h2>Love for the Theatre</h2>
+        <p>I prefer watching movies in theatres, often going alone or with friends. The dark hall, the intentional
+            silence, the immersive sound, and the massive screen create the purest connection to a film.</p>
+        <p class="quote">Theatre is not just a place; it’s a feeling.</p>
+    </section>
+
+    <!-- Section 6: Series, Anime & Film Passion -->
+    <section class="content-section">
+        <h2>Series, Anime & Film Passion</h2>
+        <p>Over the years, I have watched a large number of series, anime, and films. From grounded human dramas to
+            intense anime narratives, storytelling across formats deeply inspires me and fuels my own creative
+            execution.</p>
+    </section>
+
+    <!-- Section 7: Letterboxd Profile -->
+    <section class="content-section" style="text-align: center; border-top: 1px solid #222; padding-top: 40px;">
+        <h2>Letterboxd Profile</h2>
+        <p>Explore my watchlist and film analysis on Letterboxd.</p>
+        <div class="social-icons-sub">
+            <a href="https://letterboxd.com/bzrpilot/" target="_blank" title="Letterboxd Profile">
+                <!-- Letterboxd icon using SVG or similar since FontAwesome doesn't have it natively in older free versions -->
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                    style="vertical-align: middle;">
+                    <path
+                        d="M7.424 16.14a1.864 1.864 0 1 0 0 3.728 1.864 1.864 0 0 0 0-3.728zm4.576 0a1.864 1.864 0 1 0 0 3.728 1.864 1.864 0 0 0 0-3.728zm4.576 0a1.864 1.864 0 1 0 0 3.728 1.864 1.864 0 0 0 0-3.728zM12 0a12 12 0 1 0 12 12A12.001 12.001 0 0 0 12 0zm0 22.182A10.182 10.182 0 1 1 22.182 12 10.182 10.182 0 0 1 12 22.182z" />
+                </svg>
+            </a>
         </div>
-        <div class="chat-output" id="chat-output">
-            <div class="message ai">
-                System initialized. Greeting, Cinephile. I am your Story Analysis AI.
-                Ask me about movies, series, anime, character arcs, or thematic depth.
-                What narrative shall we explore today?
-            </div>
-        </div>
-        <form class="chat-input-area" id="chat-form">
-            <input type="text" class="chat-input" id="user-input"
-                placeholder="Enter query (e.g. recommend a sci-fi series)..." autocomplete="off">
-            <button type="submit" class="send-btn">EXECUTE</button>
-        </form>
-    </div>
+    </section>
 
-    <script>
-        const chatOutput = document.getElementById('chat-output');
-        const chatForm = document.getElementById('chat-form');
-        const userInput = document.getElementById('user-input');
+    <footer>
+        <p>&copy; 2024 Basheer (bzr.pilot). All Rights Reserved.</p>
+    </footer>
 
-        // Session ID for memory isolation
-        const sessionId = Math.random().toString(36).substring(2, 15);
-
-        function addMessage(text, sender) {
-            const div = document.createElement('div');
-            div.className = `message ${sender}`;
-            div.textContent = text;
-            chatOutput.appendChild(div);
-            chatOutput.scrollTop = chatOutput.scrollHeight;
-        }
-
-        async function getAIResponse(message) {
-            try {
-                const response = await fetch("/api/chat", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        domain: "cinephile",
-                        message: message,
-                        sessionId: sessionId
-                    })
-                });
-
-                const data = await response.json();
-
-                if (!response.ok) {
-                    throw new Error(data.error || "Connection failed.");
-                }
-
-                return data.response;
-            } catch (error) {
-                console.error(error);
-                return `[ERROR] ${error.message || "AI core offline. Please check connection."}`;
-            }
-        }
-
-        chatForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const text = userInput.value.trim();
-            if (!text) return;
-
-            addMessage(text, 'user');
-            userInput.value = '';
-
-            addMessage("DECONSTRUCTING...", 'ai');
-            const lastMessage = chatOutput.lastElementChild;
-
-            const aiResponse = await getAIResponse(text);
-            lastMessage.textContent = aiResponse;
-        });
-    </script>
 </body>
 
 </html>
