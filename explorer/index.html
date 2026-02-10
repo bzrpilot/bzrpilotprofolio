@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cinephile.ai | Basheer</title>
+    <title>Explorer.ai | Basheer</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="../assets/css/styles.css">
     <style>
         body {
-            background-color: var(--bg-color);
+            background-color: #050505;
             color: var(--text-color);
             font-family: var(--font-body);
             height: 100vh;
@@ -33,17 +33,18 @@
             max-width: 1000px;
             margin: 80px auto 20px;
             width: 90%;
-            background: rgba(10, 10, 10, 0.8);
-            border: 1px solid #222;
-            border-radius: 8px;
+            background: rgba(10, 10, 10, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 0 30px rgba(0, 255, 65, 0.05);
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
         }
 
         .ai-header {
-            background: #111;
-            padding: 15px 20px;
-            border-bottom: 1px solid #222;
+            background: rgba(20, 20, 20, 0.8);
+            padding: 15px 25px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -52,111 +53,118 @@
         .ai-status {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             font-family: var(--font-mono);
             font-size: 0.8rem;
-            color: var(--primary);
+            color: #fff;
+            letter-spacing: 1px;
         }
 
         .status-dot {
-            width: 8px;
-            height: 8px;
-            background: var(--primary);
+            width: 6px;
+            height: 6px;
+            background: #fff;
             border-radius: 50%;
-            box-shadow: 0 0 10px var(--primary);
-            animation: pulse 1.5s infinite;
+            box-shadow: 0 0 15px #fff;
+            animation: slow-pulse 3s infinite;
         }
 
-        @keyframes pulse {
+        @keyframes slow-pulse {
             0% {
+                transform: scale(1);
                 opacity: 1;
             }
 
             50% {
-                opacity: 0.4;
+                transform: scale(1.5);
+                opacity: 0.5;
             }
 
             100% {
+                transform: scale(1);
                 opacity: 1;
             }
         }
 
         .chat-output {
             flex: 1;
-            padding: 20px;
+            padding: 30px;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 20px;
             font-family: var(--font-mono);
             font-size: 0.95rem;
-            background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 2px);
+            color: #ccc;
         }
 
         .message {
             max-width: 80%;
-            padding: 12px 18px;
-            border-radius: 4px;
-            line-height: 1.5;
+            padding: 15px 20px;
+            border-radius: 8px;
+            line-height: 1.6;
+            transition: all 0.3s;
         }
 
         .message.ai {
             align-self: flex-start;
-            background: rgba(0, 243, 255, 0.05);
-            border-left: 2px solid var(--secondary);
-            color: var(--text-color);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #eee;
         }
 
         .message.user {
             align-self: flex-end;
-            background: rgba(0, 255, 65, 0.05);
-            border-right: 2px solid var(--primary);
-            color: var(--primary);
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
         }
 
         .chat-input-area {
-            padding: 20px;
-            background: #0a0a0a;
-            border-top: 1px solid #222;
+            padding: 25px;
+            background: rgba(10, 10, 10, 0.9);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             gap: 15px;
         }
 
         .chat-input {
             flex: 1;
-            background: #111;
-            border: 1px solid #333;
-            padding: 12px 15px;
-            color: var(--text-color);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px 20px;
+            color: #fff;
             font-family: var(--font-mono);
             outline: none;
-            transition: border-color 0.3s;
+            border-radius: 4px;
         }
 
         .chat-input:focus {
-            border-color: var(--secondary);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.3);
         }
 
         .send-btn {
-            background: transparent;
-            border: 1px solid var(--primary);
-            color: var(--primary);
-            padding: 0 20px;
+            background: #fff;
+            border: none;
+            color: #000;
+            padding: 0 25px;
             cursor: pointer;
             font-family: var(--font-mono);
-            transition: all 0.3s;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: transform 0.2s;
         }
 
         .send-btn:hover {
-            background: var(--primary);
-            color: #000;
+            transform: scale(1.05);
         }
 
         .back-link {
             position: absolute;
             top: 25px;
             left: 5%;
-            color: var(--text-color);
+            color: #888;
             font-family: var(--font-mono);
             display: flex;
             align-items: center;
@@ -165,45 +173,43 @@
         }
 
         .back-link:hover {
-            color: var(--secondary);
+            color: #fff;
         }
 
-        /* Scrollbar */
         .chat-output::-webkit-scrollbar {
-            width: 5px;
+            width: 3px;
         }
 
         .chat-output::-webkit-scrollbar-thumb {
-            background: #222;
-            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
         }
     </style>
 </head>
 
 <body>
-    <a href="../" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+    <a href="../" class="back-link"><i class="fas fa-chevron-left"></i> RETURN</a>
 
     <div class="ai-container">
         <div class="ai-header">
             <div class="ai-status">
                 <div class="status-dot"></div>
-                <span>CINEPHILE.AI v1.0 // STORY ANALYSIS ENGINE</span>
+                <span>EXPLORER.AI // CURIOSITY ENGINE v1.0.4</span>
             </div>
-            <div class="ai-meta" style="font-size: 0.7rem; color: #555; font-family: var(--font-mono);">
-                DOMAIN_RESTRICTION: CINEMA_SERIES_ANIME
+            <div class="ai-meta" style="font-size: 0.7rem; color: #444; font-family: var(--font-mono);">
+                DOMAIN: UNRESTRICTED_DISCOVERY // IDEATION: ACTIVE
             </div>
         </div>
         <div class="chat-output" id="chat-output">
             <div class="message ai">
-                System initialized. Greeting, Cinephile. I am your Story Analysis AI.
-                Ask me about movies, series, anime, character arcs, or thematic depth.
-                What narrative shall we explore today?
+                System initialized. Curiosity levels nominal. I am your Explorer AI.
+                Ask me about ideas, philosophy, learning paths, or experiments.
+                What shall we discover today?
             </div>
         </div>
         <form class="chat-input-area" id="chat-form">
-            <input type="text" class="chat-input" id="user-input"
-                placeholder="Enter query (e.g. recommend a sci-fi series)..." autocomplete="off">
-            <button type="submit" class="send-btn">EXECUTE</button>
+            <input type="text" class="chat-input" id="user-input" placeholder="Type a concept or question..."
+                autocomplete="off">
+            <button type="submit" class="send-btn">DISCOVER</button>
         </form>
     </div>
 
@@ -215,7 +221,7 @@
         // Note: In a static site, the API key is exposed. Use a proxy for production.
         const API_KEY = 'gsk_PLACEHOLDER_KEY';
 
-        const SYSTEM_PROMPT = "You are Cinephile.ai, a cinema-focused AI. You answer questions about movies, series, anime, storytelling, characters, themes, watch recommendations, and film analysis. You must not respond to unrelated domains.";
+        const SYSTEM_PROMPT = "You are Explorer.ai, a curiosity-driven AI. You encourage learning, philosophy, ideas, experiments, science, and discovery across domains. You respond thoughtfully and inquisitively.";
 
         // Session-based conversational memory
         let conversationHistory = [
@@ -252,7 +258,7 @@
                 return data.choices[0].message.content;
             } catch (error) {
                 console.error(error);
-                return "[ERROR] AI core offline. Please ensure a valid API key is configured in the source.";
+                return "[ERROR] Curiosity Engine offline. Please ensure a valid API key is configured in the source.";
             }
         }
 
@@ -266,7 +272,7 @@
             conversationHistory.push({ role: "user", content: text });
             userInput.value = '';
 
-            addMessage("DECONSTRUCTING...", 'ai');
+            addMessage("DISCOVERING...", 'ai');
             const lastMessage = chatOutput.lastElementChild;
 
             const aiResponse = await getAIResponse();

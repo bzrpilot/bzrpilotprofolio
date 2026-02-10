@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cinephile.ai | Basheer</title>
+    <title>Traveller.ai | Basheer</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="../assets/css/styles.css">
     <style>
         body {
-            background-color: var(--bg-color);
+            background-color: #050505;
             color: var(--text-color);
             font-family: var(--font-body);
             height: 100vh;
@@ -37,7 +37,7 @@
             border: 1px solid #222;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 0 30px rgba(0, 255, 65, 0.05);
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.05);
         }
 
         .ai-header {
@@ -55,15 +55,15 @@
             gap: 10px;
             font-family: var(--font-mono);
             font-size: 0.8rem;
-            color: var(--primary);
+            color: var(--secondary);
         }
 
         .status-dot {
             width: 8px;
             height: 8px;
-            background: var(--primary);
+            background: var(--secondary);
             border-radius: 50%;
-            box-shadow: 0 0 10px var(--primary);
+            box-shadow: 0 0 10px var(--secondary);
             animation: pulse 1.5s infinite;
         }
 
@@ -90,7 +90,6 @@
             gap: 15px;
             font-family: var(--font-mono);
             font-size: 0.95rem;
-            background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 2px);
         }
 
         .message {
@@ -130,17 +129,12 @@
             color: var(--text-color);
             font-family: var(--font-mono);
             outline: none;
-            transition: border-color 0.3s;
-        }
-
-        .chat-input:focus {
-            border-color: var(--secondary);
         }
 
         .send-btn {
             background: transparent;
-            border: 1px solid var(--primary);
-            color: var(--primary);
+            border: 1px solid var(--secondary);
+            color: var(--secondary);
             padding: 0 20px;
             cursor: pointer;
             font-family: var(--font-mono);
@@ -148,7 +142,7 @@
         }
 
         .send-btn:hover {
-            background: var(--primary);
+            background: var(--secondary);
             color: #000;
         }
 
@@ -165,10 +159,9 @@
         }
 
         .back-link:hover {
-            color: var(--secondary);
+            color: var(--primary);
         }
 
-        /* Scrollbar */
         .chat-output::-webkit-scrollbar {
             width: 5px;
         }
@@ -187,23 +180,23 @@
         <div class="ai-header">
             <div class="ai-status">
                 <div class="status-dot"></div>
-                <span>CINEPHILE.AI v1.0 // STORY ANALYSIS ENGINE</span>
+                <span>TRAVELLER.AI v1.0 // EXPERIENCE ARCHIVE ENGINE</span>
             </div>
             <div class="ai-meta" style="font-size: 0.7rem; color: #555; font-family: var(--font-mono);">
-                DOMAIN_RESTRICTION: CINEMA_SERIES_ANIME
+                DOMAIN_RESTRICTION: TRAVEL_EXPLORATION_MEMORIES
             </div>
         </div>
         <div class="chat-output" id="chat-output">
             <div class="message ai">
-                System initialized. Greeting, Cinephile. I am your Story Analysis AI.
-                Ask me about movies, series, anime, character arcs, or thematic depth.
-                What narrative shall we explore today?
+                Navigation systems online. Traveler identified. I am your Experience Archive AI.
+                Ask me about journeys, cultures, routes, or personal travel memories.
+                Where shall we wander today?
             </div>
         </div>
         <form class="chat-input-area" id="chat-form">
             <input type="text" class="chat-input" id="user-input"
-                placeholder="Enter query (e.g. recommend a sci-fi series)..." autocomplete="off">
-            <button type="submit" class="send-btn">EXECUTE</button>
+                placeholder="Enter query (e.g. recommend a solo trip)..." autocomplete="off">
+            <button type="submit" class="send-btn">NAVIGATE</button>
         </form>
     </div>
 
@@ -215,7 +208,7 @@
         // Note: In a static site, the API key is exposed. Use a proxy for production.
         const API_KEY = 'gsk_PLACEHOLDER_KEY';
 
-        const SYSTEM_PROMPT = "You are Cinephile.ai, a cinema-focused AI. You answer questions about movies, series, anime, storytelling, characters, themes, watch recommendations, and film analysis. You must not respond to unrelated domains.";
+        const SYSTEM_PROMPT = "You are Traveller.ai, a travel and experience-focused AI. You assist with places, routes, festivals, cultures, itineraries, travel stories, and exploration advice. Reject non-travel topics.";
 
         // Session-based conversational memory
         let conversationHistory = [
@@ -252,7 +245,7 @@
                 return data.choices[0].message.content;
             } catch (error) {
                 console.error(error);
-                return "[ERROR] AI core offline. Please ensure a valid API key is configured in the source.";
+                return "[ERROR] Navigation system offline. Please ensure a valid API key is configured in the source.";
             }
         }
 
@@ -266,7 +259,7 @@
             conversationHistory.push({ role: "user", content: text });
             userInput.value = '';
 
-            addMessage("DECONSTRUCTING...", 'ai');
+            addMessage("NAVIGATING...", 'ai');
             const lastMessage = chatOutput.lastElementChild;
 
             const aiResponse = await getAIResponse();
