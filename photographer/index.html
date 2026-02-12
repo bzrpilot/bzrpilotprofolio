@@ -120,6 +120,186 @@
             background: #a00718;
             border-color: #a00718;
         }
+
+        /* Gallery Section */
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .gallery-filter-btn {
+            padding: 10px 20px;
+            background: #0a0a0a;
+            border: 1px solid #222;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .gallery-filter-btn:hover,
+        .gallery-filter-btn.active {
+            border-color: var(--primary);
+            color: var(--primary);
+            box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 1024px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 1/1;
+            cursor: pointer;
+            border: 1px solid #222;
+            transition: var(--transition);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 1;
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        /* Modal Styles */
+        .photo-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.98);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .photo-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .modal-img {
+            max-width: 100%;
+            max-height: 75vh;
+            border: 1px solid #333;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-caption {
+            margin-top: 25px;
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .modal-details {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+            font-family: var(--font-mono);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 2100;
+        }
+
+        .modal-close:hover {
+            color: var(--primary);
+            transform: rotate(90deg);
+        }
+
+        /* Instagram Highlights */
+        .insta-highlights {
+            text-align: center;
+            padding: 80px 5%;
+            border-top: 1px solid #111;
+            background-color: #050505;
+        }
+
+        .insta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 14px 28px;
+            margin-top: 25px;
+            font-family: var(--font-mono);
+            transition: var(--transition);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .insta-btn:hover {
+            background: var(--primary);
+            color: #000;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+        }
     </style>
 </head>
 
@@ -228,8 +408,74 @@
                         that stays with me everywhere.</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div style="text-align: center; margin-top: 50px;">
+    <!-- Visual Archive Section -->
+    <section class="section" id="visual-archive">
+        <div class="container">
+            <h2 class="section-title">Visual <span class="highlight">Archive</span></h2>
+
+            <div class="gallery-filters">
+                <button class="gallery-filter-btn active" data-filter="all">All</button>
+                <button class="gallery-filter-btn" data-filter="travel">Travel</button>
+                <button class="gallery-filter-btn" data-filter="nature">Nature</button>
+                <button class="gallery-filter-btn" data-filter="street">Street</button>
+                <button class="gallery-filter-btn" data-filter="hiking">Hiking</button>
+                <button class="gallery-filter-btn" data-filter="random">Random</button>
+            </div>
+
+            <div class="gallery-grid">
+                <!-- Travel -->
+                <div class="gallery-item" data-category="travel" onclick="openModal(this)">
+                    <img src="../assets/img/gallery/travel.png" alt="Travel">
+                    <div class="item-info" data-caption="Travel" data-location="Swiss Alps" data-date="Aug 2023"></div>
+                </div>
+                <!-- Nature -->
+                <div class="gallery-item" data-category="nature" onclick="openModal(this)">
+                    <img src="../assets/img/gallery/nature.png" alt="Nature">
+                    <div class="item-info" data-caption="Nature" data-location="Enchanted Forest" data-date="Oct 2023">
+                    </div>
+                </div>
+                <!-- Street -->
+                <div class="gallery-item" data-category="street" onclick="openModal(this)">
+                    <img src="../assets/img/gallery/street.png" alt="Street">
+                    <div class="item-info" data-caption="Street" data-location="Tokyo, Japan" data-date="Dec 2023">
+                    </div>
+                </div>
+                <!-- Hiking -->
+                <div class="gallery-item" data-category="hiking" onclick="openModal(this)">
+                    <img src="https://images.unsplash.com/photo-1551632432-c7359b469b57?auto=format&fit=crop&w=800&q=80"
+                        alt="Hiking">
+                    <div class="item-info" data-caption="Hiking" data-location="Mountain Peak" data-date="July 2023">
+                    </div>
+                </div>
+                <!-- Random -->
+                <div class="gallery-item" data-category="random" onclick="openModal(this)">
+                    <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80"
+                        alt="Random">
+                    <div class="item-info" data-caption="Random" data-location="Visual Stories" data-date="Jan 2024">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="insta-highlights">
+        <div class="container"
+            style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <h2 class="section-title">Instagram <span class="highlight">Highlights</span></h2>
+            <p style="color: var(--text-muted); margin-bottom: 0;">More moments are updated regularly on Instagram.</p>
+            <a href="https://www.instagram.com/bzr.pilot" target="_blank" class="insta-btn">
+                <i class="fab fa-instagram"></i> View on Instagram →
+            </a>
+        </div>
+    </section>
+
+    <!-- See My Work (Pinterest) -->
+    <section class="section bg-darker">
+        <div class="container">
+            <div style="text-align: center;">
                 <h3>See My Work</h3>
                 <p style="margin-bottom: 20px; color: var(--text-muted);">Explore my visual collections on Pinterest.
                 </p>
@@ -244,6 +490,73 @@
         <p>&copy; 2024 Basheer (bzr.pilot). All Rights Reserved.</p>
     </footer>
 
+    <!-- Photo Modal -->
+    <div class="photo-modal" id="photoModal">
+        <div class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></div>
+        <div class="modal-content">
+            <img src="" alt="Preview" class="modal-img" id="modalImg">
+            <div class="modal-caption" id="modalCaption"></div>
+            <div class="modal-details" id="modalDetails"></div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(element) {
+            const modal = document.getElementById('photoModal');
+            const modalImg = document.getElementById('modalImg');
+            const modalCaption = document.getElementById('modalCaption');
+            const modalDetails = document.getElementById('modalDetails');
+            const img = element.querySelector('img');
+            const info = element.querySelector('.item-info');
+
+            modalImg.src = img.src;
+            modalCaption.textContent = info.dataset.caption;
+            modalDetails.textContent = `${info.dataset.location} • ${info.dataset.date}`;
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('photoModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // Close modal on click outside image
+        document.getElementById('photoModal').addEventListener('click', (e) => {
+            if (e.target.id === 'photoModal') closeModal();
+        });
+
+        // Filtering logic
+        const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.dataset.filter;
+
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.dataset.category === filter) {
+                        item.style.display = 'block';
+                        // Add fade in animation
+                        item.style.animation = 'fadeIn 0.5s ease forwards';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
